@@ -860,17 +860,11 @@ function student_to_lapis(order_id){
 
                     }catch(PDOException Exception){
                         dbody = "Error: ";
-                        dbody .= "PDO Error during execution of LAPIS Query </br>";
-                        dbody .= "Error Message: ".$Exception->getMessage()."</br>";
-                        dbody .= "Error Code: ".(int)$Exception->getCode()."</br>";
-                        body = $firstName.' '.$lastName. ' + "<p>There was an error with sending data to Lapis. Student data is recovered:</p>" + 
-                        "<ul>" + "<li>First Name: '.enroll_data['firstName'].'</li>" + "<li>Last Name: '.enroll_data['lastName'].'</li>" +
-                        "<li>Gender: '.enroll_data['gender'].'</li>" + "<li>Country: '.enroll_data['country'].'</li>" + "<li>Email: '.enroll_data['email'].'</li>" +
-                        "<li>Phone: '.enroll_data['phone'].'</li>" + "<li>Birthday: '.enroll_data['birthday'].'</li>" + "<li>Qualification: '.enroll_data['qualificationName'].'</li>" +
-                        "<li>Additional Info: '.enroll_data['additionalInfo'].'</li>" + "<li>Is New To Qualification: '.enroll_data['isNew'].'</li>" + "<li>PNumber: '.enroll_data['pnumber'].'</li>" +
-                        "<li>OpenCartID: '.enroll_data['opencartId'].'</li>" + "<li>UTM-Source: '.enroll_data['utmSource'].'</li>" + "<li>UTM-Medium: '.enroll_data['utmMedium'].'</li>" + 
-                        "<li>UTM-Term: '.enroll_data['utmTerm'].'</li>" + "<li>UTM-Content: '.enroll_data['utmContent'].'</li>" + "<li>UTM-Campaign: '.enroll_data['utmCampaign'].'</li>" + 
-                        "<li>Form Type: Enroll </li>" + "</ul>" + "</br>" + "<p>Geek details: </br> Debug Information: </p>" + "</br>" + dbody;
+                        dbody += "PDO Error during execution of LAPIS Query </br>";
+                        dbody += "Error Message: " + Exception->getMessage() + "</br>";
+                        dbody += "Error Code: " + (int)Exception->getCode() + "</br>";
+                        var body = document.createElement("HMTL");
+                        htmlDoc.innerhtml(firstName + ' ' + lastName + ' + "<p>There was an error with sending data to Lapis. Student data is recovered:</p>" + "<ul>" + "<li>First Name: ' + enroll_data['firstName'] + '</li>" + "<li>Last Name: ' + enroll_data['lastName'] + '</li>" +"<li>Gender: ' + enroll_data['gender'] + '</li>" + "<li>Country: ' + enroll_data['country'] + '</li>" + "<li>Email: ' + enroll_data['email'] + '</li>" + "<li>Phone: ' + enroll_data['phone'] + '</li>" + "<li>Birthday: ' + enroll_data['birthday'] + '</li>" + "<li>Qualification: ' + enroll_data['qualificationName'] + '</li>"' + '"<li>Additional Info: ' + enroll_data['additionalInfo'] + '</li>"' + '"<li>Is New To Qualification: ' + enroll_data['isNew'] + '</li>" + "<li>PNumber: ' + enroll_data['pnumber'] + '</li>"' + '"<li>OpenCartID: ' + enroll_data['opencartId'] + '</li>"' + '"<li>UTM-Source: ' + enroll_data['utmSource'] + '</li>"' + '"<li>UTM-Medium: ' + enroll_data['utmMedium'] + '</li>"' + '"<li>UTM-Term: '.enroll_data['utmTerm'] + '</li>" + "<li>UTM-Content: ' + enroll_data['utmContent'] + '</li>"' + '"<li>UTM-Campaign: ' + enroll_data['utmCampaign'] + '</li>"' + "<li>Form Type: Enroll </li>" + "</ul>" + "</br>" + "<p>Geek details: </br> Debug Information: </p>" + "</br>" + dbody);
                         self::send_email_to_dev("Student", lapis_category, "Failure", firstName.' '.lastName, body);
                     }
                 }
@@ -902,57 +896,25 @@ function student_to_lapis(order_id){
 }
 
 var send_email_to_lead_static = {
-    send_email_to_lead : function ($program, $location, $studentName, $studentEmail){
-        $headers = array('Content-Type: text/html; charset=UTF-8');
-        $logo_url = "https://moodle.globaltraining.org/pages/resources/global-training-logo-white.png";
-        $sample_url = "http://globaltraining.org/sample/";
-         if( $program == 'ACCA' && $location == 'romania'){
-             $subject = "ACCA with Globaltraining";
-             $body  = '
-                         <!DOCTYPE html>
-                         <html xmlns="http://www.w3.org/1999/xhtml">
-                             <head>
-                                 <title>Globaltraining</title>
-                                 <style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>
-                             </head>
-                             <body>
-                                 <div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">
-                                     <img src="'.$logo_url.'" style="width:100%" alt="Globaltraining" />
-                                 </div>
-                                 <div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">
-                                     <div style="margin:30px 25px 0 25px">
-                                         <p>Dear '.$studentName.'</p> <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>
-                                         <p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="'.$sample_url.'?region=Romania">click here</a> to view. </p>
-                                         <br />
-                                         <h2>Association of Chartered Certified Accountants (ACCA)</h2>
-                                         <p>The Association of Chartered Certified Accountants (ACCA) is the largest and fastest-growing global professional accountancy body in the world. 
-                                         The qualification is awarded after successful completion of fourteen ACCA examinations and three years of practical experience.</p>
-                                         <p>The ACCA qualification is a passport to a new world of opportunity. ACCA is not only about accounting, you will also develop a range of skills and knowledge including finance, tax, law and management.</p>
-                                         <br />
-                                         <h2>Globaltraining</h2>
-                                         <p>Globaltraining Romania is the premier professional training institute in Bucharest since 2007.</p>
-                                         <p>Our students constantly exceed worldwide pass-rates and achieve international prizes. As a result of this the ACCA has approved us as a 
-                                         Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers.</p>
-                                         <br />
-                                         <h2>Study Online and In Class</h2>
-                                         <p>With Globaltraining Romania you have the option to study online, in class or through a blend of both.</p>
-                                         <p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality.</p>
-                                         <p>Our classroom courses are offered in modern, purpose-built premises in Bucharest, Grozavesti area. Top quality training can only be delivered in a top quality environment.</p>
-                                         <br />
-                                         <p>Kind Regards,</p>
-                                         <br />
-                                         <p>
-                                             <b>The Globaltraining Team</b><br /> Tel: + 40 31 425 3663<br /> Fax: + 40 31 425 3662 
-                                             <br /> Email: info.ro@globaltraining.org<br /> Address: 31A Economu Cezarescu Street, Sector 6, 060754, Bucharest - Romania
-                                         </p>
-                                     </div>
-                                 </div>
-                                 <br />
-                                 <br />
-                             </body>
-                         </html>';;
-     
-                         wp_mail($studentEmail,$subject,$body,$headers);
+    send_email_to_lead : function (program, location, studentName, studentEmail){
+        headers = array('Content-Type: text/html; charset=UTF-8');
+        logo_url = "https://moodle.globaltraining.org/pages/resources/global-training-logo-white.png";
+        sample_url = "http://globaltraining.org/sample/";
+         if( program == 'ACCA' && location == 'romania'){
+             subject = "ACCA with Globaltraining";
+             var body = document.createElement("HMTL");
+             htmlDoc.innerhtml('<!DOCTYPE html>'+'<html xmlns="http://www.w3.org/1999/xhtml">' + '<head>' + '<title>Globaltraining</title>' + '<style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>' + 
+             '</head>' + '<body>' + '<div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">' + '<img src="' + logo_url + '" style="width:100%" alt="Globaltraining" />' + 
+             '</div>' + '<div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">' + '<div style="margin:30px 25px 0 25px">' + '<p>Dear ' + studentName + '</p> <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>' + 
+             '<p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="' + sample_url + '?region=Romania">click here</a> to view. </p>' + '<br />' + '<h2>Association of Chartered Certified Accountants (ACCA)</h2>' + 
+             ' <p>The Association of Chartered Certified Accountants (ACCA) is the largest and fastest-growing global professional accountancy body in the world. The qualification is awarded after successful completion of fourteen ACCA examinations and three years of practical experience.</p>' + 
+             '<p>The ACCA qualification is a passport to a new world of opportunity. ACCA is not only about accounting, you will also develop a range of skills and knowledge including finance, tax, law and management.</p>' +
+             '<br />' + '<h2>Globaltraining</h2>' + ' <p>Globaltraining Romania is the premier professional training institute in Bucharest since 2007.</p>' + '<p>Our students constantly exceed worldwide pass-rates and achieve international prizes. As a result of this the ACCA has approved us as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers.</p>' + 
+             '<br />' + '<h2>Study Online and In Class</h2>' + '<p>With Globaltraining Romania you have the option to study online, in class or through a blend of both.</p>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality.</p>' +
+             '<p>Our classroom courses are offered in modern, purpose-built premises in Bucharest, Grozavesti area. Top quality training can only be delivered in a top quality environment.</p>' +
+             '<br />' + '<p>Kind Regards,</p>' + '<br />' + '<p>' + '<b>The Globaltraining Team</b><br /> Tel: + 40 31 425 3663<br /> Fax: + 40 31 425 3662 ' + '<br /> Email: info.ro@globaltraining.org<br /> Address: 31A Economu Cezarescu Street, Sector 6, 060754, Bucharest - Romania' +
+             '</p>' + '</div>' + '</div>' + '<br />' + '<br />' + '</body>' + '</html>');
+            wp_mail($studentEmail,$subject,$body,$headers);
          }else if($program == 'ACCA' && $location == 'southafrica'){
              $subject = "ACCA with Globaltraining";
              $body = '<!DOCTYPE html>
