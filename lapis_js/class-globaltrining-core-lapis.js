@@ -903,7 +903,7 @@ var send_email_to_lead_static = {
          if( program == 'ACCA' && location == 'romania'){
              subject = "ACCA with Globaltraining";
              var body = document.createElement("HMTL");
-             htmlDoc.innerhtml('<!DOCTYPE html>'+'<html xmlns="http://www.w3.org/1999/xhtml">' + '<head>' + '<title>Globaltraining</title>' + '<style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>' + 
+             body.innerhtml('<!DOCTYPE html>'+'<html xmlns="http://www.w3.org/1999/xhtml">' + '<head>' + '<title>Globaltraining</title>' + '<style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>' + 
              '</head>' + '<body>' + '<div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">' + '<img src="' + logo_url + '" style="width:100%" alt="Globaltraining" />' + 
              '</div>' + '<div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">' + '<div style="margin:30px 25px 0 25px">' + '<p>Dear ' + studentName + '</p> <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>' + 
              '<p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="' + sample_url + '?region=Romania">click here</a> to view. </p>' + '<br />' + '<h2>Association of Chartered Certified Accountants (ACCA)</h2>' + 
@@ -914,134 +914,49 @@ var send_email_to_lead_static = {
              '<p>Our classroom courses are offered in modern, purpose-built premises in Bucharest, Grozavesti area. Top quality training can only be delivered in a top quality environment.</p>' +
              '<br />' + '<p>Kind Regards,</p>' + '<br />' + '<p>' + '<b>The Globaltraining Team</b><br /> Tel: + 40 31 425 3663<br /> Fax: + 40 31 425 3662 ' + '<br /> Email: info.ro@globaltraining.org<br /> Address: 31A Economu Cezarescu Street, Sector 6, 060754, Bucharest - Romania' +
              '</p>' + '</div>' + '</div>' + '<br />' + '<br />' + '</body>' + '</html>');
-            wp_mail($studentEmail,$subject,$body,$headers);
-         }else if($program == 'ACCA' && $location == 'southafrica'){
-             $subject = "ACCA with Globaltraining";
-             $body = '<!DOCTYPE html>
-                     <html xmlns="http://www.w3.org/1999/xhtml">
-                         <head>
-                             <title>Globaltraining</title>
-                             <style></style>
-                                 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
-                                 body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; }
-                             </style>
-                         </head>
-                         <body>
-                             <div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">
-                                 <img src="'.$logo_url.'" style="width:100%" alt="Globaltraining" />
-                             </div>
-                             <div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">
-                                 <div style="margin:30px 25px 0 25px">
-                                     <p>Dear '.$studentName.',</p>
-                                     <p>
-                                         Thank you for submitting your interest to study your ACCA qualification with Globaltraining.
-                                         Our Student Support team will be in contact with you shortly.</p> <p>We are glad to offer you access to our
-                                         <b>Sample Course Materials</b> - please <a href="'.$sample_url.'?region=SouthAfrica">click here</a> to view.
-                                     </p>
-                                     <br />
-                                     <h2>Association of Chartered Certified Accountants (ACCA)</h2>
-                                     <p>
-                                         The Association of Chartered Certified Accountants (ACCA) is the largest and fastest-growing global professional accountancy body in the world. 
-                                         The qualification is awarded after successful completion of fourteen ACCA examinations and three years of practical experience.
-                                     </p>
-                                     <p>The ACCA qualification is a passport to a new world of opportunity. ACCA is not only about accounting, you will also develop a range of skills and knowledge including finance, tax, law and management.</p>
-                                     <br />
-                                     <h2>Globaltraining</h2>
-                                     <p>
-                                         Globaltraining has been approved by the ACCA as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers. 
-                                         We have been operating for over 20 years, and have centres across Europe and Online.
-                                     </p> <br />
-                                     <h2>Studying Online</h2>
-                                     <p>
-                                         Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality. 
-                                         Our courses can be accessed via all devices (including tablets and mobile) and videos can be downloaded to reduce your need for internet-streaming.</p>
-                                         <br /> <p>Kind Regards,</p><br />
-                                         <p> <b>The Globaltraining Team</b><br /> Tel: +357 22 841 795<br /> Fax: +357 22 357 484<br /> Email: liveonline@globaltraining.org
-                                         <br /> Address: 46, Makedonitissas Ave., P.O. Box 24005, 1700 Nicosia </p>
-                                 </div>
-                             </div>
-                             <br />
-                             <br />
-                         </body>
-                     </html>';
-                     wp_mail($studentEmail,$subject,$body,$headers);
-         }else if($program == 'ACCA' && $location == 'africa'){
-             $subject = "ACCA with Globaltraining";
-             $body = '<!DOCTYPE html>
-                 <html xmlns="http://www.w3.org/1999/xhtml">
-                     <head>
-                         <title>Globaltraining</title>
-                         <style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>
-                     </head>
-                     <body>
-                         <div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">
-                             <img src="'.$logo_url.'" style="width:100%" alt="Globaltraining" />
-                         </div>
-                         <div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">
-                             <div style="margin:30px 25px 0 25px">
-                                 <p>Dear '.$studentName.',</p>
-                                 <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>
-                                 <p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="'.$sample_url.'?region=Africa">click here</a> to view. </p>
-                                 <br />
-                                 <h2>Association of Chartered Certified Accountants (ACCA)</h2>
-                                 <p>The Association of Chartered Certified Accountants (ACCA) is the largest and fastest-growing global professional accountancy body in the world.
-                                 The qualification is awarded after successful completion of fourteen ACCA examinations and three years of practical experience.</p>
-                                 <p>The ACCA qualification is a passport to a new world of opportunity. ACCA is not only about accounting, you will also develop a range of skills and knowledge including finance, tax, law and management.</p>
-                                 <br />
-                                 <h2>Globaltraining</h2>
-                                 <p>Globaltraining has been approved by the ACCA as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers. 
-                                 We have been operating for over 20 years, and have centres across Europe and Online.</p>
-                                 <br />
-                                 <h2>Studying Online</h2>
-                                 <p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality. 
-                                 Our courses can be accessed via all devices (including tablets and mobile) and videos can be downloaded to reduce your need for internet-streaming.</p>
-                                 <br />
-                                 <p>Kind Regards,</p><br /> <p> <b>The Globaltraining Team</b><br /> Tel: +357 22 841 795<br /> Fax: +357 22 357 484<br /> Email: liveonline@globaltraining.org<br /> Address: 46, Makedonitissas Ave., P.O. Box 24005, 1700 Nicosia </p>
-                             </div>
-                         </div>
-                         <br />
-                         <br />
-                     </body>
-                 </html>';
-             wp_mail($studentEmail,$subject,$body,$headers);
-         }else if($program == 'ACCA' && $location == 'all'){
-             $subject = "ACCA with Globaltraining";
-             $body = '<!DOCTYPE html>
-                         <html xmlns="http://www.w3.org/1999/xhtml">
-                         <head> <title>Globaltraining</title>
-                             <style>
-                                 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
-                                 body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; }
-                             </style>
-                         </head>
-                         <body>
-                             <div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">
-                                 <img src="'.$logo_url.'" style="width:100%" alt="Globaltraining" />
-                             </div>
-                             <div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">
-                             <div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;"> 
-                                 <div style="margin:30px 25px 0 25px"> 
-                                     <p>Dear '.$studentName.',</p> 
-                                     <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. 
-                                     Our Student Support team will be in contact with you shortly.</p> <p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="'.$sample_url.'">click here</a> to view. </p> 
-                                     <br /> <h2>Globaltraining</h2> 
-                                     <p>Globaltraining has been training students to become CEOs, CFOs, Entrepreneurs and more since 1991.</p> <p>Our students constantly exceed worldwide pass-rates and achieve international prizes. 
-                                     As a result of this the ACCA has approved us as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers.</p> 
-                                     <p>By studying with Globaltraining you increase your chances of passing your ACCA exams first time - saving you time and money!</p> <br /> <h2>Studying Online</h2> 
-                                     <p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality.</p> 
-                                     <p>Just a few benefits of studying with Globaltraining Online are:</p> <ul> <li>Study online - Anywhere, Anytime</li> 
-                                     <li>Download materials to work offline</li> <li>Access videos via all devices, including tablet and mobile</li> 
-                                     <li>Pay in manageable installments</li> </ul>  <br /> <p>Kind Regards,</p><br /> 
-                                     <p> <b>The Globaltraining Team</b>
-                                     <br />Tel: +357 22 841 795<br /> Fax: +357 22 357 484<br /> Email: liveonline@globaltraining.org<br /> Address: 46, Makedonitissas Ave., P.O. Box 24005, 1700 Nicosia </p> 
-                                 </div>
-                             </div>
-                             <br />
-                             <br />
-                         </body>
-                     </html>';
-     
-             wp_mail($studentEmail,$subject,$body,$headers);
+            wp_mail(studentEmail,subject,body,headers);
+         }else if(program == 'ACCA' && location == 'southafrica'){
+             subject = "ACCA with Globaltraining";
+             var body = document.createElement("HTML");
+             body.innerhtml('<!DOCTYPE html>'+'<html xmlns="http://www.w3.org/1999/xhtml">' + '<head>' + '<title>Globaltraining</title>' + '<style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>' + 
+             '</head>' + '<body>' + '<div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">' + '<img src="' + logo_url + '" style="width:100%" alt="Globaltraining" />' + 
+             '</div>' + '<div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">' + '<div style="margin:30px 25px 0 25px">' + '<p>Dear ' + studentName + '</p> <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>' + 
+             '<p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="' + sample_url + '?region=SouthAfrica">click here</a> to view. </p>' + '<br />' + '<h2>Association of Chartered Certified Accountants (ACCA)</h2>' + 
+             ' <p>The Association of Chartered Certified Accountants (ACCA) is the largest and fastest-growing global professional accountancy body in the world. The qualification is awarded after successful completion of fourteen ACCA examinations and three years of practical experience.</p>' + 
+             '<p>The ACCA qualification is a passport to a new world of opportunity. ACCA is not only about accounting, you will also develop a range of skills and knowledge including finance, tax, law and management.</p>' +
+             '<br />' + '<h2>Globaltraining</h2>' + ' <p>Globaltraining has been approved by the ACCA as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers. We have been operating for over 20 years, and have centres across Europe and Online.</p>' + 
+             '<br />' + '<h2>Studying Online</h2>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality. Our courses can be accessed via all devices (including tablets and mobile) and videos can be downloaded to reduce your need for internet-streaming.</p>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality.</p>' +
+             '<br />' + '<p>Kind Regards,</p>' + '<br />' + '<p>' + '<b>The Globaltraining Team</b><br /> Tel: Tel: +357 22 841 795<br /> Fax: +357 22 357 484 ' + '<p>' + '<b>' + 'The Globaltraining Team' + '</p>' + '</b>' + '<br /> Email: liveonline@globaltraining.org <br /> Address: 46, Makedonitissas Ave., P.O. Box 24005, 1700 Nicosia' +
+             '</p>' + '</div>' + '</div>' + '<br />' + '<br />' + '</body>' + '</html>');
+            wp_mail(studentEmail,subject,body,headers);
+         }else if(program == 'ACCA' && location == 'africa'){
+             subject = "ACCA with Globaltraining";
+             var body = document.createElement("HTML");
+             body.innerhtml('<!DOCTYPE html>'+'<html xmlns="http://www.w3.org/1999/xhtml">' + '<head>' + '<title>Globaltraining</title>' + '<style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>' + 
+             '</head>' + '<body>' + '<div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">' + '<img src="' + logo_url + '" style="width:100%" alt="Globaltraining" />' + 
+             '</div>' + '<div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">' + '<div style="margin:30px 25px 0 25px">' + '<p>Dear ' + studentName + '</p> <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>' + 
+             '<p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="' + sample_url + '?region=Africa">click here</a> to view. </p>' + '<br />' + '<h2>Association of Chartered Certified Accountants (ACCA)</h2>' + 
+             ' <p>The Association of Chartered Certified Accountants (ACCA) is the largest and fastest-growing global professional accountancy body in the world. The qualification is awarded after successful completion of fourteen ACCA examinations and three years of practical experience.</p>' + 
+             '<p>The ACCA qualification is a passport to a new world of opportunity. ACCA is not only about accounting, you will also develop a range of skills and knowledge including finance, tax, law and management.</p>' +
+             '<br />' + '<h2>Globaltraining</h2>' + ' <p>Globaltraining has been approved by the ACCA as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers. We have been operating for over 20 years, and have centres across Europe and Online.</p>' + 
+             '<br />' + '<h2>Studying Online</h2>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality. Our courses can be accessed via all devices (including tablets and mobile) and videos can be downloaded to reduce your need for internet-streaming.</p>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality.</p>' +
+             '<br />' + '<p>Kind Regards,</p>' + '<br />' + '<p>' + '<b>The Globaltraining Team</b><br /> Tel: Tel: +357 22 841 795<br /> Fax: +357 22 357 484 ' + '<p>' + '<b>' + 'The Globaltraining Team' + '</p>' + '</b>' + '<br /> Email: liveonline@globaltraining.org <br /> Address: 46, Makedonitissas Ave., P.O. Box 24005, 1700 Nicosia' +
+             '</p>' + '</div>' + '</div>' + '<br />' + '<br />' + '</body>' + '</html>');
+             wp_mail(studentEmail,subject,body,headers);
+         }else if(program == 'ACCA' && location == 'all'){
+             subject = "ACCA with Globaltraining";
+             var body = document.createElement("HTML");
+             body.innerhtml('<!DOCTYPE html>'+'<html xmlns="http://www.w3.org/1999/xhtml">' + '<head>' + '<title>Globaltraining</title>' + '<style> @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900); body { background-color: #fbfbfb; font-family: \'Lato\', sans-serif; margin: 0; font-size: 16px; color: #565656; line-height: 25px; } </style>' + 
+             '</head>' + '<body>' + '<div style="width:95%;max-width:364px;margin:20px auto;height:auto; background:#003a73">' + '<img src="' + logo_url + '" style="width:100%" alt="Globaltraining" />' + 
+             '</div>' + '<div style="background:#fff;border:1px solid #e2e2e2;width:95%;max-width:550px;height:auto;margin:0 auto;">' + '<div style="margin:30px 25px 0 25px">' + '<p>Dear ' + studentName + '</p> <p>Thank you for submitting your interest to study your ACCA qualification with Globaltraining. Our Student Support team will be in contact with you shortly.</p>' + 
+             '<p>We are glad to offer you access to our <b>Sample Course Materials</b> - please <a href="' + sample_url + '">click here</a> to view. </p>' + '<br />' + 
+             '<h2>Globaltraining</h2>' + ' <p>Globaltraining has been training students to become CEOs, CFOs, Entrepreneurs and more since 1991.</p>' + '<p>Our students constantly exceed worldwide pass-rates and achieve international prizes. As a result of this the ACCA has approved us as a Platinum Learning Partner - this is the highest level of recognition offered by the ACCA, awarded only to the very best tuition providers.</p>' +
+             + '<p>By studying with Globaltraining you increase your chances of passing your ACCA exams first time - saving you time and money!</p>' +
+             '<br />' + '<h2>Studying Online</h2>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality. Our courses can be accessed via all devices (including tablets and mobile) and videos can be downloaded to reduce your need for internet-streaming.</p>' + '<p>Globaltraining\'s Live Online study method allows you flexibility and affordability without compromising on quality.</p>' +
+             '<p>Just a few benefits of studying with Globaltraining Online are:</p> <ul> <li>Study online - Anywhere, Anytime</li> <li>Download materials to work offline</li> <li>Access videos via all devices, including tablet and mobile</li> <li>Pay in manageable installments</li> </ul>' +
+             '<br />' + '<p>Kind Regards,</p>' + '<br />' + '<p>' + '<b>The Globaltraining Team</b><br /> Tel: Tel: +357 22 841 795<br /> Fax: +357 22 357 484 ' + '<p>' + '<b>' + 'The Globaltraining Team' + '</p>' + '</b>' + '<br /> Email: liveonline@globaltraining.org <br /> Address: 46, Makedonitissas Ave., P.O. Box 24005, 1700 Nicosia' +
+             '</p>' + '</div>' + '</div>' + '<br />' + '<br />' + '</body>' + '</html>');
+             wp_mail(studentEmail,subject,body,headers);
          }else if($program == 'DipIFR' && $location == 'romania'){
              $subject = 'DipIFR with Globaltraining';
              $body = '<!DOCTYPE html>
